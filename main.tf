@@ -18,9 +18,9 @@ provider "google" {
 resource "google_sql_database_instance" "master" {
   name             = "marcinstance"
   database_version = "MYSQL_5_7"
-  region           = "europe-west4"
+  region           = "europe-west3"
   settings {
-    tier = "db-f1-micro"
+    tier = "db-f1-small"
   }
   timeouts {
     create = "60m"
