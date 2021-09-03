@@ -22,6 +22,6 @@ steps:
   - id: 'Apply (Terraform)'
     name: hashicorp/terraform:1.0.0
     args:
-      - apply
+      - apply -y
 
 images: ['gcr.io/pexon-training/api-marc']
