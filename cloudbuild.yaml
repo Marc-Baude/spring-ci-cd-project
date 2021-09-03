@@ -1,0 +1,4 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'gcr.io/pexon-training/api-marc', '--build-arg=JAR_FILE=target/api-0.0.1-SNAPSHOT.jar', '.']
+images: ['gcr.io/pexon-training/api-marc']
