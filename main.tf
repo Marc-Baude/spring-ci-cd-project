@@ -20,7 +20,7 @@ resource "google_sql_database_instance" "master" {
   database_version = "MYSQL_5_7"
   region           = "europe-west3"
   settings {
-    tier = "db-f1-small"
+    tier = "db-g1-small"
   }
   timeouts {
     create = "60m"
