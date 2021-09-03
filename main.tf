@@ -21,7 +21,9 @@ resource "google_sql_database_instance" "master" {
   region           = "europe-west4"
   settings {
     tier = "db-f1-micro"
-
+  }
+  timeouts {
+    create = "60m"
   }
 }
 
