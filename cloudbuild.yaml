@@ -3,7 +3,14 @@ steps:
     name: gcr.io/cloud-builders/docker
     args: ['build', '-t', 'gcr.io/pexon-training/api-marc', '--build-arg=JAR_FILE=target/api-0.0.1-SNAPSHOT.jar', '.']
 
-  - name: maven:3.8.2-jdk-11-openj9
+  - id: 'Run Maven Tests'
+    name: maven:3.8.2-jdk-11-openj9
     entrypoint: mvn
     args: ['test']
+
+  - id: 'Start/Check DB (Terraform)'
+    name: hashicorp/terraform:1.0.0
+    args:
+      - init
+
 images: ['gcr.io/pexon-training/api-marc']
