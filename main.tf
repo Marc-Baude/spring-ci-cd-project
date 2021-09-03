@@ -1,9 +1,9 @@
 terraform {
+  backend"gcs"{
+    bucket = "pexon-training-tfstate"
+    prefix = "marc-training/state"
+  }
   required_providers {
-    backend "gcs" {
-      bucket = "pexon-training-tfstate"
-      prefix = "marc-training/state"
-    }
     google = {
       source  = "hashicorp/google"
       version = "3.5.0"
