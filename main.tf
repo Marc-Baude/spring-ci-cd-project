@@ -17,7 +17,7 @@ provider "google" {
 }
 
 resource "google_sql_database_instance" "master" {
-  name             = "marc-cicd-training"
+  name             = "marc-cicd-training-test"
   database_version = "MYSQL_5_7"
   region           = "europe-west3"
   settings {
@@ -41,4 +41,4 @@ resource "google_sql_user" "users" {
 
 output "db_ip" {
   value = google_sql_database_instance.master.ip_address
-}
+} 
