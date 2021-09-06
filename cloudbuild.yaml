@@ -1,3 +1,5 @@
+timeout: 3600s
+
 steps:
   - id: 'Package Maven to Docker image '
     name: gcr.io/cloud-builders/docker

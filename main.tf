@@ -17,7 +17,7 @@ provider "google" {
 }
 
 resource "google_sql_database_instance" "master" {
-  name             = "marc-cicd-training-test2"
+  name             = "marc-cicd-training-test3"
   database_version = "MYSQL_5_7"
   region           = "europe-west3"
   settings {
