@@ -33,9 +33,6 @@ steps:
       - apply
       - -auto-approve
 
-  - id: 'Run Docker Image'
-    name: gcr.io/cloud-builders/docker
-    args: [ 'run', 'gcr.io/pexon-training/api-marc']
 
 
 

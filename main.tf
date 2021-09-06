@@ -45,4 +45,18 @@ resource "google_sql_user" "users" {
 
 output "db_ip" {
   value = google_sql_database_instance.master.ip_address
-} 
+}
+
+resource "google_cloud_run_service" "marc-spring-api" {
+  name     = "cloudrun-marc"
+  location = "europe-west3"
+
+  template {
+    spec {
+      containers {
+        image = "gcr.io/pexon-training/api-marc"
+      }
+    }
+  }
+  
+}
