@@ -17,11 +17,15 @@ provider "google" {
 }
 
 resource "google_sql_database_instance" "master" {
-  name             = "marc-cicd-training-test"
+  name             = "marc-cicd-training-test2"
   database_version = "MYSQL_5_7"
   region           = "europe-west3"
   settings {
     tier = "db-f1-micro"
+  }
+  timeouts {
+    create = "60m"
+    delete = "2h"
   }
 }
 
