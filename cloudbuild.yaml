@@ -33,6 +33,10 @@ steps:
       - apply
       - -auto-approve
 
+  - id: 'Destroy everything (Terraform)'
+    name: hashicorp/terraform:1.0.0
+    args:
+      - destroy
 
 
 
