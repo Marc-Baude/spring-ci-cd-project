@@ -11,6 +11,11 @@ steps:
     args:
       - test
 
+  - id: 'Push Docker image '
+      name: gcr.io/cloud-builders/docker
+      args: [ 'push', 'gcr.io/pexon-training/api-marc' ]
+
+
   - id: 'Init (Terraform)'
     name: hashicorp/terraform:1.0.0
     args:
@@ -28,5 +33,9 @@ steps:
       - apply
       - -auto-approve
 
+  - id: 'Run Docker Image'
+    name: gcr.io/cloud-builders/docker
+    args: [ 'run', 'gcr.io/pexon-training/api-marc']
 
-images: ['gcr.io/pexon-training/api-marc']
+
+
