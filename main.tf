@@ -1,7 +1,7 @@
 terraform {
   backend"gcs"{
     bucket = "pexon-training-tfstate"
-    prefix = "marc-training/state"
+    prefix = "marc-training-cicd/state"
   }
   required_providers {
     google = {
