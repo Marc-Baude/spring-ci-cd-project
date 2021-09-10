@@ -3,7 +3,7 @@ timeout: 3600s
 steps:
   - id: 'Package Maven to Docker image '
     name: gcr.io/cloud-builders/docker
-    args: ['build', '-t', 'gcr.io/pexon-training/api-marc', '--build-arg=JAR_FILE=target/api-0.0.1-SNAPSHOT.jar', '.']
+    args: ['build','-DskipTests', '-t', 'gcr.io/pexon-training/api-marc', '--build-arg=JAR_FILE=target/api-0.0.1-SNAPSHOT.jar', '.']
 
   - id: 'Run Maven Tests'
     name: maven:3.8.2-jdk-11-openj9
@@ -33,11 +33,12 @@ steps:
       - apply
       - -auto-approve
 
-  - id: 'Destroy everything (Terraform)'
-    name: hashicorp/terraform:1.0.0
-    args:
-      - destroy
-      - -auto-approve
+#   Enable this, if u want to destroy ur resources clean
+#  - id: 'Destroy everything (Terraform)'
+#    name: hashicorp/terraform:1.0.0
+#    args:
+#      - destroy
+#      - -auto-approve
 
 
 

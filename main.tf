@@ -29,24 +29,6 @@ resource "google_sql_database_instance" "master" {
   }
 }
 
-resource "google_sql_database" "database" {
-  name      = "db_main"
-  instance  = google_sql_database_instance.master.name
-  charset   = "utf8"
-  collation = "utf8_general_ci"
-}
-
-resource "google_sql_user" "users" {
-  name     = "root"
-  instance = google_sql_database_instance.master.name
-  host     = "%"
-  password = "root"
-}
-
-output "db_ip" {
-  value = google_sql_database_instance.master.ip_address
-}
-
 resource "google_cloud_run_service" "marc-spring-api" {
   name     = "cloudrun-marc"
   location = "europe-west3"
