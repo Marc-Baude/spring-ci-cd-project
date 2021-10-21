@@ -33,7 +33,7 @@ steps:
       - apply
       - -auto-approve
 
-   Enable this, if u want to destroy ur resources clean
+   # Enable this, if u want to destroy ur resources clean
   - id: 'Destroy everything (Terraform)'
     name: hashicorp/terraform:1.0.0
     args:
